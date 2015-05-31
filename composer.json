@@ -1,0 +1,7 @@
+{
+    "require": {
+        "silex/silex": "2.0.x-dev",
+        "twbs/bootstrap": "3.3.x-dev",
+        "twig/twig": "1.6.5"
+    }
+}

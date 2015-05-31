@@ -1,0 +1,8 @@
+{% if req.cookies.has('nick') %}
+    <div id="add-comment">
+        <div class="title">Добавить комментарий</div>
+        <form action="{{ post.post_id }}/addComment" method="post">
+            {% include 'message.twig' %}
+        </form>
+    </div>
+{% endif %}

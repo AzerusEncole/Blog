@@ -1,0 +1,20 @@
+{% include 'header.twig' %}
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <table class="users table table-bordered">
+                <tr>
+                    <th>Ник</th>
+                    <th>Возраст</th>
+                </tr>
+                {% for user in users %}
+                    <tr>
+                        <td><a href="{{ req.getBasePath }}/blog/{{ user.nick }}">{{ user.nick }}</a></td>
+                        <td>{{ user.age }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% include 'footer.twig' %}

@@ -1,0 +1,49 @@
+{% include 'header.twig' %}
+<div class="container content">
+    <div class="row">
+        <div id="post">
+            <div class="title">
+                {{ post.title }}
+            </div>
+            <div class="text">
+                {{ post.text }}
+            </div>
+        </div>
+        {% include 'send_comment.twig' %}
+
+        {% if comments is not empty %}
+            <div class="comments">
+                {% for comment in comments %}
+                    <div class="comment">
+                        <span class="nick">{{ comment.nick }}</span>
+                        <span class="date">{{ comment.date }}</span>
+                        <div class="text">{{ comment.text }}</div>
+                        {% if req.cookies.get('nick') == owner %}
+                        <form action="{{ req.getBasePath }}/delete_comment/{{ post.post_id }}/{{ comment.comment_id }}" class="delete_comment" method="post">
+                            <button class="btn btn-xs btn-danger">Удалить</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var textarea = document.querySelector('#add-comment form textarea');
+        var counter = document.getElementById('counter-symbols');
+        var form = document.querySelector('#add-comment > form');
+
+        var maxTextSymbols = +counter.innerHTML;
+
+        check(textarea, maxTextSymbols, counter);
+
+        form.onsubmit = function() {
+            if (textarea.value.trim().length == 0)
+                return false;
+        }
+
+    }
+</script>
+{% include 'footer.twig' %}

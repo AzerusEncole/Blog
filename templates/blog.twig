@@ -1,0 +1,57 @@
+{% include 'header.twig' %}
+<div class="container content">
+    <div class="row">
+        {% if req.cookies.get('nick') == owner %}
+            <div id="add-post">
+                <div class="title">Добавить пост</div>
+                <form action="{{ req.getBasePath }}/addPost" method="post">
+                    <div class="form-group">
+                        <input type="text" name="title" class="form-control title" placeholder="Тема"/>
+                    </div>
+                    {% include 'message.twig' %}
+                </form>
+            </div>
+        {% endif %}
+        <div id="user-posts">
+            {% if posts is not empty %}
+            <div class="title">Все посты</div>
+            <div class="list-posts">
+                {% for post in posts %}
+                    <div class="preview">
+                        <span class="title"><a href="{{ post.nick }}/{{ post.post_id }}">{{ post.title }}</a></span>
+                        <span class="date">{{ post.date }}</span>
+                        {% if req.cookies.get('nick') == owner %}
+                            <form action="{{ req.getBasePath }}/delete_post/{{ post.post_id }}" class="delete_post" method="post">
+                                <button class="btn btn-xs btn-danger">Удалить</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            {% else %}
+                <div class="title">Постов нет. Пока нет.</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var title = document.querySelector('#add-post form .title');
+        var textarea = document.querySelector('#add-post form textarea');
+        var counter = document.getElementById('counter-symbols');
+        var form = document.querySelector('#add-post > form');
+
+        var maxTextSymbols = +counter.innerHTML;
+        var maxTitleSymbols = 50;
+
+        check(title, maxTitleSymbols);
+        check(textarea, maxTextSymbols, counter);
+
+        form.onsubmit = function() {
+            if (title.value.trim().length == 0 || textarea.value.trim().length == 0)
+                return false;
+        }
+
+    }
+</script>
+{% include 'footer.twig' %}

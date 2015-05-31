@@ -1,0 +1,115 @@
+/* common */
+
+header {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4096ee), color-stop(100%,#4096ee));
+}
+
+header .nav li {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.content {
+    margin-top: 40px;
+    color: black;
+}
+
+#welcome {
+    padding-top: 7px;
+    color: #216269;
+}
+
+#welcome > .nick {
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 100px;
+}
+
+/* main.twig */
+
+.window-on-main {
+    text-align: center;
+}
+
+.window-on-main .title {
+    height: 30px;
+    line-height: 30px;
+}
+
+/* blog.twig */
+
+#add-post > .title {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+#user-posts > .title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+#user-posts .preview {
+    margin-bottom: 20px;
+}
+
+#user-posts .preview .delete_post {
+    margin-top: 10px;
+}
+
+#user-posts .preview .title, #user-posts .preview .date {
+    font-size: 25px;
+}
+
+#user-posts .preview .title {
+    cursor: pointer;
+}
+
+#user-posts .preview .date {
+    float: right;
+}
+
+#user-posts .title, #user-posts .preview .title {
+    font-weight: bold;
+}
+
+/* post.twig */
+
+#post {
+    margin-bottom: 100px;
+}
+
+#post > .title {
+    font-size: 25px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.comments {
+    margin-top: 50px;
+}
+
+.comments .comment {
+    margin-bottom: 20px;
+}
+
+.comments .comment .delete_comment {
+    margin-top: 10px;
+}
+
+.comments .comment .nick {
+    font-weight: bold;
+}
+
+.comments .comment .date {
+    margin-left: 20px;
+}
+
+/* users.twig */
+
+.users, .users th {
+    text-align: center;
+}
