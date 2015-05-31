@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.24, for debian-linux-gnu (i686)
+git -- MySQL dump 10.13  Distrib 5.6.24, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: Blog
 -- ------------------------------------------------------
